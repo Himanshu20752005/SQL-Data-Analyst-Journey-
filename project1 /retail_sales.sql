@@ -83,7 +83,12 @@ select distinct category from retail_sales;
 
 
 -- Q.7 Write a SQL query to calculate the average sale for each month. Find out best selling month in each year
+   select month(sale_date) ,avg(total_sale) from retail_sale group by 1 order by 1, 2 DESC ;
+
 -- Q.8 Write a SQL query to find the top 5 customers based on the highest total sales 
+   select customer_id , sum(total_sale) as total_sales from retail_sales group by 1 order by 1 ,2 DESC limit 5;
+   
 -- Q.9 Write a SQL query to find the number of unique customers who purchased items from each category.
+   select distinct customer_id from retail_sale where 
 -- Q.10 Write a SQL query to create each shift and number of orders (Example Morning <=12, Afternoon Between 12 & 17, Evening >17)
 
