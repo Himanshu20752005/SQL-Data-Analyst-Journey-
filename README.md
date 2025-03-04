@@ -73,6 +73,6 @@ Welcome to my SQL projects repository! 🚀 This repository contains various SQL
 If you have suggestions or improvements, feel free to fork this repo and submit a pull request. Let's grow together! 🚀
 
 ## 📞 Contact
-- **GitHub**: [Your GitHub Profile](https://github.com/your-username)
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
-- **Email**: your.email@example.com
+- **GitHub**: [GitHub Profile](https://github.com/Himanshu20752005)
+- **LinkedIn**: [LinkedIn Profile](linkedin.com/in/himanshu-pandey-9419a9276)
+- **Email**: himanshu.work.it09@gmail.com
