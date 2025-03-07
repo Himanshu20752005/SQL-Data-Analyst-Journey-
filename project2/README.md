@@ -24,8 +24,8 @@ Database consists of the following tables:
 - `books`
 - `issued_status`
 - `return_status`
-![Library_project](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey-/edit/main/project2/ER_digram.png)
-
+![Library_project](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey-/blob/main/project2/ER_digram.png)
+                   
 ```sql
 
 
