@@ -26,7 +26,7 @@ Database consists of the following tables:
 - `return_status`
 
 ```sql
-![Library Management ERD](images/library_erd.png)
+![Library Management ERD](project2/ER_digram.png)
 
 CREATE DATABASE library_db;
 
