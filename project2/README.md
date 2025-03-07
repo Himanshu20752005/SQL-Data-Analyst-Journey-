@@ -24,8 +24,7 @@ Database consists of the following tables:
 - `books`
 - `issued_status`
 - `return_status`
-
-![Library Management ERD](project2/ER_digram.png)
+![Library_project](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey---project2/ER_digram.png)
 
 ```sql
 
