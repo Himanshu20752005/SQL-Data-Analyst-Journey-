@@ -25,8 +25,10 @@ Database consists of the following tables:
 - `issued_status`
 - `return_status`
 
-```sql
 ![Library Management ERD](project2/ER_digram.png)
+
+```sql
+
 
 CREATE DATABASE library_db;
 
