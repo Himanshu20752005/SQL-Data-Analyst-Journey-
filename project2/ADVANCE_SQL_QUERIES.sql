@@ -72,27 +72,98 @@ where isbn = '978-0-307-58837-1';
   of books returned, and the total revenue generated from book rentals. */
 
 -- issued_status == retrun_status == books == branch == employees
-
+-- my query 
 select 
  br.branch_id,
+ br.manager_id,
  -- count(b.isbn) as number_of_books
- count(distinct iss.issued_book_isbn) as number_of_books_issued,
- count(distinct rs.return_id) as number_of_returned_books,
+ count( iss.issued_book_isbn) as number_of_books_issued,
+ count( rs.return_id) as number_of_returned_books,
  sum (b.rental_price) as total_revenu
  
 from books as b
-left join issued_status as iss
+join issued_status as iss
 on b.isbn = iss.issued_book_isbn
 left join return_status as rs
 on iss.issued_id = rs.issued_id
-left join employees as e
+join employees as e
 on iss.issued_emp_id = e.emp_id
-left join branch as br
+join branch as br
 on e.branch_id = br.branch_id
 
 group by 1
 order by 1
 ;
+
+-- table creation
+
+drop table if exists branch_reports;
+CREATE TABLE branch_reports
+AS
+SELECT 
+    b.branch_id,
+    b.manager_id,
+    COUNT(ist.issued_id) as number_book_issued,
+    COUNT(rs.return_id) as number_of_book_return,
+    SUM(bk.rental_price) as total_revenue
+FROM issued_status as ist
+JOIN 
+employees as e
+ON e.emp_id = ist.issued_emp_id
+JOIN
+branch as b
+ON e.branch_id = b.branch_id
+LEFT JOIN
+return_status as rs
+ON rs.issued_id = ist.issued_id
+JOIN 
+books as bk
+ON ist.issued_book_isbn = bk.isbn
+GROUP BY 1, 2
+order by 1
+;
+
+SELECT * FROM branch_reports;
+
+/* Task 16: CTAS: Create a Table of Active Members
+   Use the CREATE TABLE AS (CTAS) statement to create a new table active_members containing members who have issued
+   at least one book in the last 2 months. */
+
+
+select * from issued_status;
+
+-- select current_date - interval '12 month';
+
+create table active_members as 
+select * from members where member_id in (
+select distinct issued_member_id 
+from issued_status
+where issued_date >= current_date - interval '11 months 30 days');
+
+select * from active_members;
+
+
+/* Task 17: Find Employees with the Most Book Issues Processed
+   Write a query to find the top 3 employees who have processed the most book issues. Display the employee name,
+   number of books processed, and their branch. */
+
+select e.emp_id , b.* , count(iss.issued_id) as number_of_books_issued
+from issued_status as iss
+join employees as e
+on e.emp_id = iss.issued_emp_id
+join branch as b
+on e.branch_id = b.branch_id
+group by 1 ,2
+order by 6;
+
+
+/* Task 19: Stored Procedure Objective: Create a stored procedure to manage the status of books in a library system. 
+   Description: Write a stored procedure that updates the status of a book in the library based on its issuance. The 
+   procedure should function as follows: The stored procedure should take the book_id as an input parameter. The
+   procedure should first check if the book is available (status = 'yes'). If the book is available, it should be 
+   issued, and the status in the books table should be updated to 'no'. If the book is not available (status = 'no'),
+   the procedure should return an error message indicating that the book is currently not available.
+
 
 
 
