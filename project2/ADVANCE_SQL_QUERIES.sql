@@ -67,6 +67,33 @@ select * from books
 where isbn = '978-0-307-58837-1';
 
 
+/*Task 15: Branch Performance Report
+  Create a query that generates a performance report for each branch, showing the number of books issued, the number
+  of books returned, and the total revenue generated from book rentals. */
+
+-- issued_status == retrun_status == books == branch == employees
+
+select 
+ br.branch_id,
+ -- count(b.isbn) as number_of_books
+ count(distinct iss.issued_book_isbn) as number_of_books_issued,
+ count(distinct rs.return_id) as number_of_returned_books,
+ sum (b.rental_price) as total_revenu
+ 
+from books as b
+left join issued_status as iss
+on b.isbn = iss.issued_book_isbn
+left join return_status as rs
+on iss.issued_id = rs.issued_id
+left join employees as e
+on iss.issued_emp_id = e.emp_id
+left join branch as br
+on e.branch_id = br.branch_id
+
+group by 1
+order by 1
+;
 
 
-	
+
+
