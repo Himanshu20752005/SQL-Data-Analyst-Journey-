@@ -22,6 +22,50 @@ where rs.return_date is null
      and (current_date - iss.issued_date) > 30
 order by 1;
 
+-- Task 14: Update Book Status on Return
+/* Write a query to update the status of books in the books table to "Yes" when they are
+   returned (based on entries in the return_status table). */
+select * from return_status;
+select * from issued_status;
+
+select * from books
+where isbn = '978-0-307-58837-1';
+
+update books
+set status = 'no'
+where isbn =  '978-0-307-58837-1';
+
+create or replace procedure add_return_status (p_return_id varchar(10), p_issued_id varchar(30))
+language plpgsql
+as $$
+
+declare
+  v_isbn varchar(50);
+   v_book_name varchar(50);
+begin
+  insert into return_status(return_id , issued_id , return_date) 
+  values (p_return_id , p_issued_id , current_date);
+
+  select issued_book_isbn ,issued_book_name into v_isbn , v_book_name
+  from issued_status
+  where issued_id = p_issued_id;
+  
+  update books
+  set status = 'yes'
+  where isbn = v_isbn;
+
+  raise notice 'Thnaks for returning the book : %',v_book_name;
+end;
+$$
+
+delete  from return_status
+where return_id = 'RS138';
+
+call add_return_status('RS138', 'IS135');
+
+select * from books
+where isbn = '978-0-307-58837-1';
+
 
 
 
