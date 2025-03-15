@@ -25,7 +25,10 @@ Database consists of the following tables:
 - `issued_status`
 - `return_status`
 ![Library_project](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey-/blob/main/project2/ER_digram.png)
-                   
+
+#### Entity Relationship Diagram (ERD) after advance SQL queries
+
+![Library_project](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey-/blob/main/project2/ER Digram (Advance Queries).png)              
 ```sql
 
 
