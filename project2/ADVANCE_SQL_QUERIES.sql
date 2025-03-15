@@ -162,9 +162,55 @@ order by 6;
    procedure should function as follows: The stored procedure should take the book_id as an input parameter. The
    procedure should first check if the book is available (status = 'yes'). If the book is available, it should be 
    issued, and the status in the books table should be updated to 'no'. If the book is not available (status = 'no'),
-   the procedure should return an error message indicating that the book is currently not available.
+   the procedure should return an error message indicating that the book is currently not available. */
 
 
+
+create or replace procedure issue_book(p_issued_id VARCHAR(10), p_issued_member_id VARCHAR(30),
+                                      p_issued_book_isbn VARCHAR(30), p_issued_emp_id VARCHAR(10))
+language plpgsql
+as $$
+
+declare
+    v_status VARCHAR(10);
+begin
+-- all the code
+    -- checking if book is available 'yes'
+    select status 
+    into v_status
+    from books
+    where isbn = p_issued_book_isbn;
+
+    if v_status = 'yes' then
+
+        insert into issued_status(issued_id, issued_member_id, issued_date, issued_book_isbn, issued_emp_id)
+        values (p_issued_id, p_issued_member_id, CURRENT_DATE, p_issued_book_isbn, p_issued_emp_id);
+
+        update books
+        set status = 'no'
+        where isbn = p_issued_book_isbn;
+
+        raise notice 'The Book record for isbn no % have been added successfully ', p_issued_book_isbn;
+
+    else
+        raise notice 'Sorry to inform you the book you have requested is unavailable book_isbn: %', p_issued_book_isbn;
+    end if;
+end;
+$$
+
+-- Testing The function
+SELECT * FROM books where isbn = '978-0-553-29698-2';
+
+-- "978-0-553-29698-2" -- yes
+-- "978-0-375-41398-8" -- no
+SELECT * FROM issued_status;
+
+CALL issue_book('IS155', 'C108', '978-0-553-29698-2', 'E104');
+CALL issue_book('IS156', 'C108', '978-0-375-41398-8', 'E104');
+
+
+SELECT * FROM books
+WHERE isbn = '978-0-375-41398-8'
 
 
 
