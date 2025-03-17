@@ -1,0 +1,72 @@
+restaurant_id,restaurant_name,city,opening_hours
+1,The Bombay,Mumbai,10:00 AM - 11:00 PM
+2,Leopold Cafe,Mumbai,9:00 AM - 12:00 AM
+3,Bademiya,Mumbai,6:00 PM - 3:00 AM
+4,Ziya,Mumbai,12:00 PM - 11:00 PM
+5,Gajalee,Mumbai,11:00 AM - 11:00 PM
+6,Masala Library,Mumbai,"12:00 PM - 3:00 PM, 7:00 PM - 11:00 PM"
+7,Mahesh Lunch,Mumbai,11:30 AM - 11:45 PM
+8,Yauatcha,Mumbai,12:00 PM - 12:00 AM
+9,Britannia & Co,Mumbai,12:00 PM - 4:00 PM
+10,Indigo,Mumbai,"12:00 PM - 3:30 PM, 7:00 PM - 11:45 PM"
+11,Restaurant 11,Bengaluru,11:00 AM - 11:00 PM
+12,Restaurant 12,Bengaluru,11:00 AM - 11:00 PM
+13,Restaurant 13,Mumbai,11:00 AM - 11:00 PM
+14,Restaurant 14,Hyderabad,11:00 AM - 11:00 PM
+15,Restaurant 15,Mumbai,11:00 AM - 11:00 PM
+16,Restaurant 16,Hyderabad,11:00 AM - 11:00 PM
+17,Restaurant 17,Mumbai,11:00 AM - 11:00 PM
+18,Restaurant 18,Bengaluru,11:00 AM - 11:00 PM
+19,Restaurant 19,Mumbai,11:00 AM - 11:00 PM
+20,Restaurant 20,Hyderabad,11:00 AM - 11:00 PM
+21,Restaurant 21,Mumbai,11:00 AM - 11:00 PM
+22,Restaurant 22,Hyderabad,11:00 AM - 11:00 PM
+23,Restaurant 23,Hyderabad,11:00 AM - 11:00 PM
+24,Restaurant 24,Mumbai,11:00 AM - 11:00 PM
+25,Restaurant 25,Hyderabad,11:00 AM - 11:00 PM
+26,Restaurant 26,Chennai,11:00 AM - 11:00 PM
+27,Restaurant 27,Hyderabad,11:00 AM - 11:00 PM
+28,Restaurant 28,Mumbai,11:00 AM - 11:00 PM
+29,Restaurant 29,Hyderabad,11:00 AM - 11:00 PM
+30,Restaurant 30,Bengaluru,11:00 AM - 11:00 PM
+31,Restaurant 31,Chennai,11:00 AM - 11:00 PM
+32,Restaurant 32,Chennai,11:00 AM - 11:00 PM
+33,Restaurant 33,Hyderabad,11:00 AM - 11:00 PM
+34,Restaurant 34,Bengaluru,11:00 AM - 11:00 PM
+35,Restaurant 35,Hyderabad,11:00 AM - 11:00 PM
+36,Restaurant 36,Hyderabad,11:00 AM - 11:00 PM
+37,Restaurant 37,Chennai,11:00 AM - 11:00 PM
+38,Restaurant 38,Hyderabad,11:00 AM - 11:00 PM
+39,Restaurant 39,Chennai,11:00 AM - 11:00 PM
+40,Restaurant 40,Chennai,11:00 AM - 11:00 PM
+41,Restaurant 41,Bengaluru,11:00 AM - 11:00 PM
+42,Restaurant 42,Hyderabad,11:00 AM - 11:00 PM
+43,Restaurant 43,Chennai,11:00 AM - 11:00 PM
+44,Restaurant 44,Mumbai,11:00 AM - 11:00 PM
+45,Restaurant 45,Chennai,11:00 AM - 11:00 PM
+46,Restaurant 46,Delhi,11:00 AM - 11:00 PM
+47,Restaurant 47,Chennai,11:00 AM - 11:00 PM
+48,Restaurant 48,Hyderabad,11:00 AM - 11:00 PM
+49,Restaurant 49,Mumbai,11:00 AM - 11:00 PM
+50,Restaurant 50,Hyderabad,11:00 AM - 11:00 PM
+51,Restaurant 51,Chennai,11:00 AM - 11:00 PM
+52,Restaurant 52,Mumbai,11:00 AM - 11:00 PM
+53,Restaurant 53,Bengaluru,11:00 AM - 11:00 PM
+54,Restaurant 54,Chennai,11:00 AM - 11:00 PM
+55,Restaurant 55,Chennai,11:00 AM - 11:00 PM
+56,Restaurant 56,Bengaluru,11:00 AM - 11:00 PM
+57,Restaurant 57,Hyderabad,11:00 AM - 11:00 PM
+58,Restaurant 58,Bengaluru,11:00 AM - 11:00 PM
+59,Restaurant 59,Hyderabad,11:00 AM - 11:00 PM
+60,Restaurant 60,Mumbai,11:00 AM - 11:00 PM
+61,Restaurant 61,Hyderabad,11:00 AM - 11:00 PM
+62,Restaurant 62,Delhi,11:00 AM - 11:00 PM
+63,Restaurant 63,Hyderabad,11:00 AM - 11:00 PM
+64,Restaurant 64,Chennai,11:00 AM - 11:00 PM
+65,Restaurant 65,Mumbai,11:00 AM - 11:00 PM
+66,Restaurant 66,Hyderabad,11:00 AM - 11:00 PM
+67,Restaurant 67,Mumbai,11:00 AM - 11:00 PM
+68,Restaurant 68,Bengaluru,11:00 AM - 11:00 PM
+69,Restaurant 69,Mumbai,11:00 AM - 11:00 PM
+70,Restaurant 70,Delhi,11:00 AM - 11:00 PM
+71,Restaurant 71,Chennai,11:00 AM - 11:00 PM
