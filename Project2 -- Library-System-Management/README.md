@@ -188,7 +188,8 @@ GROUP BY 1, 2;
 git clone https://github.com/HimanshuPandey/Library-Management-SQL.git
 
 # Set up the database
-# Execute the SQL scripts in 'database_setup.sql' to create and populate the database.
+# Execute the SQL scripts in 'Tables_creation_SQL.sql' to create the tables
+# ( You can import the data directly on you sql software or use 'data_insertion_queries.sql' to inser manually )
 
 # Run queries
 # Use the SQL scripts in 'analysis_queries.sql' to analyze data.
