@@ -13,7 +13,8 @@ The project consists of the following tables:
 5. **Deliveries** – Tracks order deliveries, including status and assigned rider.
 
 ## 🏗 ER Diagram
-![ER Diagram](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey-/blob/main/ProjectX%20--%20Zomato%20Data%20Analysis/ER_Diagram.png)
+![ER Diagram](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey-/blob/main/Project3%20--%20Zomato%20SQL/ER_Diagram/ER_Diagram.png)
+
 
 ## 🛠 SQL Implementation
 ### 🔹 Table Creation
