@@ -29,7 +29,8 @@ Database consists of the following tables:
 
 #### Entity Relationship Diagram (ERD) after advance SQL queries
 
-![Library_project](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey-/blob/main/project2/ER_Digram_(Advance_Queries).png).              
+![Library_project](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey-/blob/main/Project2%20--%20Library-System-Management/ER%20Diagram/ER_Digram_(Advance_Queries).png)
+
 ```sql
 
 
