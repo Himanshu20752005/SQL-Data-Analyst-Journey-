@@ -1,6 +1,6 @@
 # Retail Sales Analysis SQL Project
 
-## Project Overview
+## Project Overview ( Beginner level )
 
 **Project Title:** Retail Sales Analysis  
 **Level:** Beginner  
