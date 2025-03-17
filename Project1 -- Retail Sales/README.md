@@ -15,6 +15,8 @@ This project showcases SQL skills and techniques commonly used by data analysts 
 - **Business Analysis:** Use SQL queries to derive insights from the sales data.
 
 ---
+## ER Diagram 
+ ![Retail Sales ER Diagram](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey-/blob/main/Project1%20--%20Retail%20Sales/ER_Diagram.png)
 
 ## Project Structure
 
