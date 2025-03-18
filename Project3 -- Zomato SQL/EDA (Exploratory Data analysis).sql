@@ -171,14 +171,32 @@ JOIN
 customers AS c
 ON o.customer_id = c.customer_id
 GROUP BY 1
-HAVING COUNT(o.order_item)>300
+HAVING COUNT(o.order_item)>300 
 ORDER BY 3 DESC;
 
+--AND o.order_status = 'Completed' 
 
 -- Q4. High-Value Customers 
 -- Question: List the customers who have spent more than 100K in total on food orders. 
 -- return customer_name, and customer_id
 
+
+SELECT 
+   c.customer_id,
+   c.customer_name ,
+   COUNT(o.order_item) AS total_orders,
+   SUM(o.total_amount) AS total_values
+FROM orders AS o
+JOIN 
+customers AS c
+ON o.customer_id = c.customer_id
+GROUP BY 1
+HAVING SUM(o.total_amount)>100000
+ORDER BY 3 DESC;
+
+-- Q5. Orders Without Delivery 
+-- Question: Write a query to find orders that were placed but not delivered. 
+-- Return each restuarant name, city and number of not delivered orders
 
 
 
