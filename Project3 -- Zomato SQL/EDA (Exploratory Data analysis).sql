@@ -116,6 +116,53 @@ LIMIT 5 ;
 -- Question: Identify the time slots during which the most orders are placed. based on 2-hour intervals. 
 
 
+SELECT * FROM orders;
+
+SELECT 
+       CASE
+	     WHEN EXTRACT (HOUR FROM order_time)BETWEEN 0 AND 1 THEN '00:00 - 02:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 2 AND 3 THEN '02:00 - 04:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 4 AND 5 THEN '04:00 - 06:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 6 AND 7 THEN '06:00 - 08:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 8 AND 9 THEN '08:00 - 10:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 10 AND 11 THEN '10:00 - 12:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 12 AND 13 THEN '12:00 - 14:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 14 AND 15 THEN '14:00 - 16:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 16 AND 17 THEN '16:00 - 18:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 18 AND 19 THEN '18:00 - 20:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 20 AND 21 THEN '20:00 - 22:00'
+		 WHEN EXTRACT (HOUR FROM order_time)BETWEEN 22 AND 23 THEN '22:00 - 24:00'
+	   END AS start_slot,	 
+       COUNT(*) AS Total_Orders
+FROM orders
+GROUP BY 1
+ORDER BY 2 DESC;
+
+
+-- OR 
+
+-- if order time is 23:32 then we extract hours from it i.e 23 (EXTRACT(HOUR FROM order_time)
+-- 23/2 = 11.5 
+-- FLOOR of 11.5 is 11 (i.e the starting Value)
+-- 11 + 2 is 13 (i.e the ending Value)
+
+SELECT 
+   FLOOR (EXTRACT(HOUR FROM order_time)/2)*2 AS starting_hour,
+   FLOOR (EXTRACT(HOUR FROM order_time)/2)*2 +2 AS ending_hour,
+   COUNT(*) AS Total_Orders
+FROM orders
+GROUP BY 1,2
+ORDER BY 3 DESC;
+
+
+
+
 -- 3. Order Value Analysis 
 -- Question: Find the average order value per customer who has placed more than 758 orders. 
 -- Return customer_name, and aov (average order value)
+
+
+
+
+
+
