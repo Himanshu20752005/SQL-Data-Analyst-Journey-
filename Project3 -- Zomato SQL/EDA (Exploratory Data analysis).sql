@@ -67,9 +67,9 @@ DELETE FROM riders
 WHERE sign_up IS NULL;
 
 
--------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- ANALYSIS & REPORT
--------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 -- Q.1 
@@ -78,19 +78,38 @@ WHERE sign_up IS NULL;
 SELECT * FROM customers;
 SELECT * FROM orders;
 
+SELECT * 
+FROM
+(SELECT c.customer_name,
+       o.order_item AS Dishes,
+	   COUNT(o.order_item) AS order_count,
+	   DENSE_RANK() OVER(ORDER BY COUNT(*) DESC) AS rank
+FROM orders	AS o
+JOIN customers AS c
+ON c.customer_id = o.customer_id
+WHERE c.customer_name  = 'Arjun Mehta'   
+      AND 
+	  o.order_date >= CURRENT_DATE - INTERVAL '24 Months'
+GROUP BY 1 , 2
+ORDER BY 3 DESC ) AS t1
+WHERE rank <= 5;
+
+
+-- OR (Simpler)
+
+
 SELECT c.customer_name,
-       o.order_item,
+       o.order_item AS Dishes,
 	   COUNT(o.order_item) AS order_count
 FROM orders	AS o
 JOIN customers AS c
 ON c.customer_id = o.customer_id
 WHERE c.customer_name  = 'Arjun Mehta'   
       AND 
-	  o.order_date >= CURRENT_DATE - INTERVAL '24 Months' -- Currently its 2025 and the video was uploaded for 2024 
+	  o.order_date >= CURRENT_DATE - INTERVAL '24 Months'
 GROUP BY 1 , 2
 ORDER BY 3 DESC
 LIMIT 5 ;
-
 	  
   
 -- Q2. Popular Time Slots 
@@ -100,4 +119,3 @@ LIMIT 5 ;
 -- 3. Order Value Analysis 
 -- Question: Find the average order value per customer who has placed more than 758 orders. 
 -- Return customer_name, and aov (average order value)
-	
