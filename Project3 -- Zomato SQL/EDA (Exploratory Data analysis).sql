@@ -155,13 +155,29 @@ GROUP BY 1,2
 ORDER BY 3 DESC;
 
 
-
-
--- 3. Order Value Analysis 
--- Question: Find the average order value per customer who has placed more than 758 orders. 
+-- Q3. Order Value Analysis 
+-- Question: Find the average order value per customer who has placed more than 300 orders. 
 -- Return customer_name, and aov (average order value)
 
+SELECT * FROM orders;
+SELECT * FROM customers;
 
+SELECT 
+   c.customer_name ,
+   COUNT(o.order_item) AS total_orders,
+   AVG(o.total_amount) AS average_order_values
+FROM orders AS o
+JOIN 
+customers AS c
+ON o.customer_id = c.customer_id
+GROUP BY 1
+HAVING COUNT(o.order_item)>300
+ORDER BY 3 DESC;
+
+
+-- Q4. High-Value Customers 
+-- Question: List the customers who have spent more than 100K in total on food orders. 
+-- return customer_name, and customer_id
 
 
 
