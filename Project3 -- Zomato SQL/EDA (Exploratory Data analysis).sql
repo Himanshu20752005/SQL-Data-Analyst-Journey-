@@ -253,6 +253,41 @@ WHERE rank = 1;
 -- Most Popular Dish by City: 
 -- Identify the most popular dish in each city based on the number of orders
 
+SELECT *
+FROM
+(
+SELECT 
+   r.city,
+   o.order_item as Dishes,
+   COUNT(order_id) as total_order,
+   RANK() OVER(PARTITION BY r.city ORDER BY COUNT(order_id) DESC) AS rank
+FROM orders AS o
+JOIN
+restaurants as r
+ON r.restaurant_id = o.restaurant_id
+GROUP BY 1,2
+ORDER BY 3 DESC
+) AS t1
+WHERE rank = 1;
 
 
+-- Q.8 Customer Churn: 
+-- Find customers who haven't placed an order in 2024 but did in 2023.
 
+SELECT  
+    DISTINCT
+    c.customer_id ,
+	c.customer_name
+FROM orders AS o
+JOIN 
+customers AS c
+ON o.customer_id = c.customer_id
+WHERE EXTRACT(YEAR FROM  order_date) = 2023
+      AND 
+	  c.customer_id NOT IN (
+                           SELECT DISTINCT customer_id
+						   FROM orders
+						   WHERE EXTRACT(YEAR FROM order_date) = 2024
+	  )
+
+;
