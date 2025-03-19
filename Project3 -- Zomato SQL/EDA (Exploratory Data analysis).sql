@@ -198,5 +198,61 @@ ORDER BY 3 DESC;
 -- Question: Write a query to find orders that were placed but not delivered. 
 -- Return each restuarant name, city and number of not delivered orders
 
+SELECT * FROM restaurants;
+SELECT * FROM orders;
+SELECT * FROM deliveries;
+
+SELECT 
+    r.restaurant_name,
+    r.city,
+    COUNT(o.order_id) AS not_delivered_orders
+FROM orders AS o
+JOIN  
+restaurants AS r
+ON r.restaurant_id = o.restaurant_id
+LEFT JOIN 
+deliveries AS d
+ON o.order_id = d.order_id
+WHERE d.delivery_id IS NULL
+GROUP BY 1,2
+ORDER BY 3 DESC;
+
+-- Q.6 
+-- Restaurant Revenue Ranking: 
+-- Rank restaurants by their total revenue from the last 2 year, including their name, 
+-- totax revenue, and rank within their city. 
+
+
+SELECT * FROM restaurants;
+SELECT * FROM orders;
+
+WITH ranking_table 
+AS
+(SELECT 
+     r.city,
+     r.restaurant_name,
+     SUM(o.total_amount) AS total_revenue,
+	 RANK () OVER(PARTITION BY r.city ORDER BY SUM(o.total_amount) DESC) AS rank
+FROM
+orders AS o
+JOIN 
+restaurants AS r
+ON r.restaurant_id = o.restaurant_id
+WHERE order_date >= CURRENT_DATE - INTERVAL '2 Years' 
+      AND 
+	  order_status = 'Completed' -- Its imported to consider the amounts from those orders that got completed 
+GROUP BY 1,2
+)
+
+SELECT * 
+FROM ranking_table 
+WHERE rank = 1;
+
+
+-- Q. 7 
+-- Most Popular Dish by City: 
+-- Identify the most popular dish in each city based on the number of orders
+
+
 
 
