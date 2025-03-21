@@ -291,3 +291,62 @@ WHERE EXTRACT(YEAR FROM  order_date) = 2023
 	  )
 
 ;
+
+
+
+-- Q.9 Cancellation Rate Comparison: 
+-- Calculate & compare the order cancellation rate for each restaurant between the current year and the previous year.
+-- My data have a lot o cancelled orders (since i generated the data from ChatGBT .. its randome)
+
+SELECT * FROM restaurants;
+SELECT * FROM deliveries;
+SELECT * FROM orders;
+
+WITH cancel_ratio_2023
+AS
+(
+SELECT 
+     o.restaurant_id,
+	 COUNT(o.order_id) as Total_orders,
+	 COUNT(CASE WHEN d.delivery_id IS NULL THEN 1 END) AS Cancelled_orders
+FROM orders AS o
+LEFT JOIN
+deliveries AS d
+ON o.order_id  =  d.order_id
+WHERE EXTRACT(YEAR FROM order_date) = 2023
+GROUP BY 1),
+
+cancel_ratio_2024
+AS
+(
+SELECT 
+     o.restaurant_id,
+	 COUNT(o.order_id) as Total_orders,
+	 COUNT(CASE WHEN d.delivery_id IS NULL THEN 1 END) AS Cancelled_orders
+FROM orders AS o
+LEFT JOIN
+deliveries AS d
+ON o.order_id  =  d.order_id
+WHERE EXTRACT(YEAR FROM order_date) = 2024
+GROUP BY 1)
+
+SELECT 
+     c1.restaurant_id,
+	 c1.Total_orders AS Total_Orders_2023, 
+	 c1.Cancelled_orders AS Cancelled_Orders_2023,
+	 ROUND( (c1.Cancelled_orders :: Numeric /c1.Total_orders :: Numeric) * 100 ,2)AS cancellation_rate_2023,
+	 
+	 c2.Total_orders AS Total_Orders_2024,
+	 c2.Cancelled_orders AS Cancelled_Orders_2024,
+	 ROUND( (c2.Cancelled_orders :: Numeric /c2.Total_orders :: Numeric) * 100 ,2 ) AS cancellation_rate_2024
+FROM cancel_ratio_2023 As c1
+LEFT JOIN
+cancel_ratio_2024 As c2
+ON c1.restaurant_id = c2.restaurant_id 
+ORDER BY 1;
+
+-- The values where we get null in 2024 are those restaurants where order in not placed till now
+
+       
+
+
