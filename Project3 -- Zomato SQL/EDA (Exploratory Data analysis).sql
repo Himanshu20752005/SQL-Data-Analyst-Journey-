@@ -347,6 +347,24 @@ ORDER BY 1;
 
 -- The values where we get null in 2024 are those restaurants where order in not placed till now
 
-       
 
+-- Q10 Rider Average delivery time	   
+-- Determine Each Rider's Average delivery time.
+
+SELECT * FROM deliveries;
+SELECT * FROM orders;
+
+SELECT
+	 d.rider_id,
+	 o.order_time,
+	 d.delivery_time ,
+	 d.delivery_time - o.order_time AS Average_delivery_time
+FROM
+orders AS o
+JOIN
+deliveries AS d
+ON o.order_id = d.delivery_id
+WHERE d.delivery_status = 'Delivered'
+ORDER BY 1;
+	 
 
