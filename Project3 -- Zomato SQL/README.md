@@ -109,6 +109,6 @@ To run this project:
 ```
 
 All solutions are provided in `EDA (Exploratory Data Analysis).sql`.
-```
+
 
 
