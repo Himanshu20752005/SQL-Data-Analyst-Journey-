@@ -354,17 +354,21 @@ ORDER BY 1;
 SELECT * FROM deliveries;
 SELECT * FROM orders;
 
-SELECT
-	 d.rider_id,
-	 o.order_time,
-	 d.delivery_time ,
-	 d.delivery_time - o.order_time AS Average_delivery_time
-FROM
-orders AS o
-JOIN
-deliveries AS d
-ON o.order_id = d.delivery_id
+SELECT 
+   o.order_id, 
+   o.order_time, 
+   d.delivery_time, 
+   d.rider_id, 
+   d.delivery_time - o.order_time AS time_difference, 
+   EXTRACT(EPOCH FROM (
+       d.delivery_time - o.order_time + 
+       CASE WHEN d.delivery_time < o.order_time THEN INTERVAL '1 day' ELSE INTERVAL '0 second' END
+   ))/3600 AS time_difference_in_Hours 
+FROM orders AS o 
+JOIN deliveries AS d 
+ON o.order_id = d.order_id 
 WHERE d.delivery_status = 'Delivered'
-ORDER BY 1;
+ORDER BY 4;
+
 	 
 
