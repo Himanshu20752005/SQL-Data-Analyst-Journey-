@@ -14,6 +14,9 @@ This project performs an in-depth Netflix Data Analysis using SQL, focusing on d
 - **Advanced SQL Queries:** Use CTEs, window functions, and string manipulations to solve complex problems.
 - **Business Insights:** Generate insights into Netflix content distribution, ratings, and trends.
 
+## 🏗 ER Diagram
+![ER Diagram](https://github.com/Himanshu20752005/SQL-Data-Analyst-Journey-/blob/main/Project4%20--%20Netflix%20SQL/ER_Digram.png)
+              
 ## Project Structure
 
 ### 1. Database Setup
