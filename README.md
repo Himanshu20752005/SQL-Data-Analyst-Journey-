@@ -75,4 +75,4 @@ If you have suggestions or improvements, feel free to fork this repo and submit 
 ## 📞 Contact
 - **GitHub**: [GitHub Profile](https://github.com/Himanshu20752005)
 - **LinkedIn**: [LinkedIn Profile](linkedin.com/in/himanshu-pandey-9419a9276)
-- **Email**: himanshu.work.it09@gmail.com
+- **Email**: himanshu.it09@gmail.com
